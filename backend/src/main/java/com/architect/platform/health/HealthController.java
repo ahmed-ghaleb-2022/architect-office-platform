@@ -1,6 +1,7 @@
 package com.architect.platform.health;
 
 import com.architect.platform.common.response.ApiResponse;
+import com.architect.platform.common.response.ResponseBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,11 +16,7 @@ public class HealthController {
     public ApiResponse<HealthStatusResponse> getHealthStatus(){
         HealthStatusResponse data = new HealthStatusResponse("UP","architect-platform");
 
-        return ApiResponse.<HealthStatusResponse>builder()
-                .success(true)
-                .message("Health check successful")
-                .data(data)
-                .timestamp(LocalDateTime.now())
-                .build();
+        return ResponseBuilder.success("Health check successful", data);
+
     }
 }

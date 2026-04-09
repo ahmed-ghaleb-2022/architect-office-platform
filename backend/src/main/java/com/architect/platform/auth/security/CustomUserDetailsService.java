@@ -1,0 +1,26 @@
+package com.architect.platform.auth.security;
+
+
+import com.architect.platform.common.exception.ResourceNotFoundException;
+import com.architect.platform.user.entity.User;
+import com.architect.platform.user.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final UserRepository userRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username){
+
+        User user = userRepository.findByEmail(username)
+                .orElseThrow(()-> new ResourceNotFoundException("User not found with this email: " + username));
+
+        return new CustomUserDetails(user);
+    }
+}

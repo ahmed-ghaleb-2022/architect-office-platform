@@ -21,6 +21,11 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
 
+app:
+  jwt:
+    secret: MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY=
+    expiration-ms: 86400000
+
 logging:
   level:
     root: INFO

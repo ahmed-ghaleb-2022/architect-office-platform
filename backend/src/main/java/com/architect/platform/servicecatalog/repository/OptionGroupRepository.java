@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface OptionGroupRepository extends JpaRepository<OptionGroup, Long> {
     List<OptionGroup> findByServiceIdOrderBySortOrderAscIdAsc(Long serviceId);
+    List<OptionGroup> findByServiceIdAndIsRequiredTrueOrderBySortOrderAscIdAsc(Long serviceId);
+    boolean existsByIdAndServiceId(Long id, Long serviceId);
 }

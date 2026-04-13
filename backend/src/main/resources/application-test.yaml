@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/architect_platform_test
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+app:
+  jwt:
+    secret: c29tZS12ZXJ5LXNlY3VyZS1iYXNlNjQtc2VjcmV0LWtleS1mb3ItZGV2LTEyMzQ1Njc4OTA=
+    expiration-ms: 86400000

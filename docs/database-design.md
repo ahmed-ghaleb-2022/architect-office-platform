@@ -1,0 +1,1 @@
+- Wir werden die Flyway-Datenbankmigration nutzen, um alle Änderungen im SQL-Code oder in der Datenbank selbst nachzuverfolgen.

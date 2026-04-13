@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface OptionValueRepository extends JpaRepository<OptionValue, Long> {
     List<OptionValue> findByOptionGroupIdOrderBySortOrderAscIdAsc(Long optionGroupId);
+    List<OptionValue> findByIdIn(List<Long> ids);
+    boolean existsByIdAndOptionGroupId(Long id, Long optionGroupId);
 }
